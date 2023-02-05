@@ -1,0 +1,92 @@
+{% extends 'movie/base.html' %}
+{% block content %}
+
+<h2>키워드 기반 추천</h2>
+<table>
+  <tr>
+    {% for key_poster in result_key_poster %}
+      <td style="padding-right: 8px; text-align: center;">
+        <a href="{{ key_poster.0 }}">
+        <img src="{{ key_poster.1 }}" style="width: 90px; height: 130px;"/>
+        </a>
+      </td>
+    {% endfor %}
+  </tr>
+
+  <tr>
+    {% for key_name in result_key_names %}
+      <td style="padding-right: 8px; text-align: center;">
+        <p>{{ key_name }}</p>
+      </td>
+    {% endfor %}
+  </tr>
+</table>
+
+<h2>배우 기반 추천</h2>
+<table>
+  <tr>
+    {% for act_poster in result_act_poster %}
+      <td style="padding-right: 8px; text-align: center;">
+        <a href="{{ act_poster.0 }}">
+        <img src="{{ act_poster.1 }}" style="width: 90px; height: 130px;"/>
+        </a>
+      </td>
+    {% endfor %}
+  </tr>
+
+  <tr>
+    {% for act_name in result_act_names %}
+      <td style="padding-right: 8px; text-align: center;">
+        <p>{{ act_name }}</p>
+      </td>
+    {% endfor %}
+  </tr>
+</table>
+
+<h2>감독 기반 추천</h2>
+<table>
+  <tr>
+    {% for dir_poster in result_dir_poster %}
+      <td style="padding-right: 8px; text-align: center;">
+        <a href="{{ dir_poster.0 }}">
+        <img src="{{ dir_poster.1 }}" style="width: 90px; height: 130px;"/>
+        </a>
+      </td>
+    {% endfor %}
+  </tr>
+
+  <tr>
+    {% for dir_name in result_dir_names %}
+      <td style="padding-right: 8px; text-align: center;">
+        <p>{{ dir_name }}</p>
+      </td>
+    {% endfor %}
+  </tr>
+</table>
+
+
+<h2>비슷한 영화 추천</h2>
+<table>
+  <tr>
+    {% for movie_poster in result_movie_poster %}
+      <td style="padding-right: 8px; text-align: center;">
+        <a href="{{ movie_poster.0 }}">
+        <img src="{{ movie_poster.1 }}" style="width: 90px; height: 130px;"/>
+        </a>
+      </td>
+    {% endfor %}
+  </tr>
+
+  <tr>
+    {% for movie_name in result_movie_names %}
+      <td style="padding-right: 8px; text-align: center;">
+        <p>{{ movie_name }}</p>
+      </td>
+    {% endfor %}
+  </tr>
+</table>
+
+
+<p><a href="{% url 'movie:pred_movie' %}">Return to previous page</a></p>
+<p><a href="{% url 'movie:index' %}">Return to home</a></p>
+{% endblock %}

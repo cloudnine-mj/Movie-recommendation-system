@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+{% load staticfiles %}
+
+<html lang="ko">
+
+<head>
+  <title>Movie Prediction</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+  <link href="//fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/movie.css' %}">
+</head>
+
+<body>
+  <div class="container">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <span class="navbar-brand">Movie🎬 </span>
+          <div style="position:absolute;right:15px;top:12px;">
+            <button type="button" onclick="location.href='{%url 'movie:login'%}'" >Login</button>
+            <button type="button" onclick="location.href='{%url 'movie:signup'%}'">Sign up</button>
+          </div>
+          
+        </div>
+      </div>
+    </nav>
+    <div>
+      {% block content %}
+      {% endblock %}
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="container">
+      <p class="text-muted">Copyright ⓒ 2021 Replus | Movie Prediction examples | All Rights Reserved</p>
+    </div>
+  </footer>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <title>Sign Up!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+  <link href="//fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+    <h1>Sign up!</h1>
+    <form method="POST" action="{%url 'movie:signup'%}">
+      {% csrf_token %}
+      Username :
+      <br>
+      <input name="username" type="text">
+      <br>
+      Password :
+      <br>
+      <input name="password1" type="password">
+      <br>
+      Confirm Password :
+      <br>
+      <input name="password2" type="password">
+      <br><br>
+      <input type="submit" class="btn btn-primary" value="sign up">
+    </form>
+  </div>
+</body>
+</html>

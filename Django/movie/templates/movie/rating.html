@@ -1,0 +1,27 @@
+{% extends 'movie/base.html' %}
+{% block content %}
+
+<h2> 각 영화에 대한 평점을 입력해주세요. (0~5사이 숫자) </h2>
+
+
+<form action="{% url 'movie:rating' %}" method="POST">
+{% csrf_token %}
+
+  <table>
+    <tr>
+      {% for id_image in title_id_image %}
+        <td><a class="row-image"><img src="{{ id_image.2 }}"></a></td>
+        <td><b><label for="user_rating_input">&nbsp&nbsp {{ movie_title }}</label></b></td>
+        <input type='hidden' name='movie_id_{{ forloop.counter }}' value="{{ id_image.1 }}"/>
+        <input type="text" name="user_rating_{{ forloop.counter }}" id="user_rating_input" placeholder="Insert ratings">
+        <td><p>{{ id_image.0 }}</p></td>
+      {% endfor %}
+    </tr>
+  </table>
+
+  <button type="submit">Import</button>
+
+</form>
+
+<p><a href="{% url 'movie:index' %}">Return to home</a></p>
+{% endblock %}

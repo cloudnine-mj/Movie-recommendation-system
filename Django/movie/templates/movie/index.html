@@ -1,0 +1,13 @@
+{% extends 'movie/base.html' %}
+{% block content %}
+
+<div class="row" style="margin-top:10%;">
+  <div class="col-md-6">
+    <div class="jumbotron" style="background-color: black;">
+      <p><a href="{% url 'movie:pred_movie' %}">movie prediction</a></p>
+      <p><a href="{% url 'movie:rating_movie' %}">movie rating</a></p>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

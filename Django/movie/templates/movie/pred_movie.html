@@ -1,0 +1,17 @@
+{% extends 'movie/base.html' %}
+{% block content %}
+
+<form action="{% url 'movie:movie_like' %}" method="POST">
+{% csrf_token %}
+
+
+  <label for="movie_name">영화 이름</label>
+  <input type="text" id="movie_name" name="movie_name" placeholder="ex) Toy Story">
+  <br>
+
+  <button type="submit">Predict!</button>
+
+</form>
+
+<p><a href="{% url 'movie:index' %}">Return to home</a></p>
+{% endblock %}

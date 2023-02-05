@@ -1,0 +1,62 @@
+{% extends 'movie/base.html' %}
+{% block content %}
+
+
+<h2>아이템 기반 추천</h2>
+
+<table>
+  <tr>
+    {% for rec_poster in user_rec_poster %}
+      <td style="padding-right: 8px; text-align: center;">
+        <a href="{{ rec_poster.0 }}">
+        <img src="{{ rec_poster.1 }}" style="width: 90px; height: 130px;"/>
+        </a>
+      </td>
+    {% endfor %}
+  </tr>
+
+  <tr>
+    {% for movie_name in user_rec_names %}
+      <td style="padding-right: 8px; text-align: center;">
+        <p>{{ movie_name }}</p>
+      </td>
+    {% endfor %}
+  </tr>
+</table>
+
+
+<h2>SVD 기반 추천</h2>
+
+<table>
+  <tr>
+    {% for svdposter in svd_poster %}
+      <td style="padding-right: 8px; text-align: center;">
+        <a href="{{ svdposter.0 }}">
+          <img src="{{ svdposter.1 }}"/>
+        </a>
+      </td>
+    {% endfor %}
+  </tr>
+
+  <tr>
+    {% for svdname in svd_names %}
+      <td style="padding-right: 8px; text-align: center;">
+        <p>{{ svdname }}</p>
+      </td>
+    {% endfor %}
+  </tr>
+
+  <tr>
+    {% for svdrat in svd_rating %}
+    <td style="padding-right: 8px; text-align: center;">
+      <p>예상 평점</p>
+      <p>{{ svdrat }}</p>
+    </td>
+    {% endfor %}
+  </tr>
+</table>
+
+<p><a href="{% url 'movie:rating' %}">Return to previous page</a></p>
+<p><a href="{% url 'movie:index' %}">Return to home</a></p>
+
+{% endblock %}
